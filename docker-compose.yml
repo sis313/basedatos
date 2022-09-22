@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  db:
+    # image: mysql:8.0.30-debian
+    build:
+      context: .
+    restart: always
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    ports:
+      # expose port to host machine (our local host)
+      # <Port exposed> : < MySQL Port running inside container>
+      - "3306:3306"
+    expose:
+      # Opens port 3306 on the container
+      - "3306"
+    # this will create a volume where we will store our data
+    volumes:
+      - my-db:/var/lib/mysql
+
+volumes:
+  my-db:
