@@ -4,8 +4,7 @@
 
 # Setup
 
-- build docker file: docker build -t mysql_db .
-- once built, run docker compose: docker-compose up
+- run docker compose: `docker-compose --env-file .env.dev up`
 
 # connect to the db locally
 
@@ -15,10 +14,10 @@
 
 - to reset db (if any changes or to reseed):
 
-  - run: docker volume ls
+  - run: `docker volume ls`
   - find volume linked to container
-  - set down container: docker-compose down
-  - run: docker volume rm {volume-name} e.g. 'docker volume rm dockerize_mysql_sample_my-db'
+  - set down container: `docker-compose --env-file .env.dev down`
+  - run: docker volume rm {volume-name} e.g. `docker volume rm dockerize_mysql_sample_my-db`
 
 - to rebuild dockerfile:
-  - docker-compose build
+  - `docker-compose build`
