@@ -5,6 +5,7 @@
 # Setup
 
 - run docker compose: `docker-compose --env-file .env.dev up`
+- add more sql scripts under ./scripts dir if needed (note that these scripts will be executed in alphabetical order)
 
 # connect to the db locally
 
